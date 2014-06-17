@@ -1,6 +1,6 @@
 # Introduction
 
-Entity Persistence Service provides a NoSQL abstraction over RDBMS to store entities as schema-less bags of properties (e.g., JSON objects or Java `Map`s). Entities have a GUID and can have multiple versions. The rest of the entity is opaque as far as the datastore is concerned. From a service consumer's perspective, the "schema" of the datastore can be changed simply by storing new properties. In addition, MoonLighting Persistence Service indexes entity properties by flattening them out and persisting them in a different datastore which enables primitive search capabilities.
+Entity Persistence Service provides a NoSQL abstraction over RDBMS to store entities as schema-less bags of properties (e.g., JSON objects or Java `Map`Ms). Entities have a GUID and can have multiple versions. The rest of the entity is opaque as far as the datastore is concerned. From a service consumer's perspective, the "schema" of the datastore can be changed simply by storing new properties. In addition, Entity Persistence Service indexes entity properties by flattening them out and persisting them in a different datastore which enables primitive search capabilities.
 
 See http://backchannel.org/blog/friendfeed-schemaless-mysql for technical inspiration.
 
