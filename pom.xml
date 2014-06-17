@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent> 
+        <groupId>com.akamai.open.moonlighting</groupId>
+        <artifactId>dependencies</artifactId>
+        <version>0.4.0</version>
+    </parent>
+
+    <groupId>com.akamai.open.moonlighting</groupId>
+    <artifactId>persistence-service</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>bundle</packaging>
+
+    <name>MoonLighting Persistence Service</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <argLine>-Xmx512m</argLine>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.3.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Activator>com.akamai.open.moonlighting.persistence.service.impl.Activator</Bundle-Activator>
+                        <Export-Package>com.akamai.open.moonlighting.persistence.service,com.akamai.open.moonlighting.persistence.service.exception</Export-Package>
+                        <Private-Package>com.akamai.open.moonlighting.persistence.service.impl.*</Private-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <description>Schemaless persistence service over Oracle</description>
+    <dependencies>
+        <dependency>
+            <groupId>com.akamai.open.moonlighting</groupId>
+            <artifactId>rdbms-connection-service</artifactId>
+            <version>2.0.0-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>2.3.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
+<!-- 
+    REFERENCES:
+    [0] http://felix.apache.org/site/apache-felix-maven-bundle-plugin-bnd.html
+-->
